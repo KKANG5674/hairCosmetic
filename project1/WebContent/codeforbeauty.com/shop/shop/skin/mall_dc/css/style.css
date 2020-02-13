@@ -1,0 +1,590 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0 auto;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	line-height: 1;
+	margin:0 auto;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+	text-decoration: none;
+	list-style: none;
+	font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+}
+
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 100;
+  src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff2) format('woff2'),
+       url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff) format('woff'),
+       url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 300;
+  src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2) format('woff2'),
+       url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff) format('woff'),
+       url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf) format('opentype');
+}
+
+@font-face {
+   font-family: 'Noto Sans KR';
+   font-style: normal;
+   font-weight: 400;
+   src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format('woff2'),
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'),
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype');
+ }
+
+@font-face {
+   font-family: 'Noto Sans KR';
+   font-style: normal;
+   font-weight: 500;
+   src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff2) format('woff2'),
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff) format('woff'),
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.otf) format('opentype');
+ }
+
+@font-face {
+   font-family: 'Noto Sans KR';
+   font-style: normal;
+   font-weight: 700;
+   src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff2) format('woff2'),
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff) format('woff'),
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.otf) format('opentype');
+ }
+
+@font-face {
+   font-family: 'Noto Sans KR';
+   font-style: normal;
+   font-weight: 900;
+   src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff2) format('woff2'),
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff) format('woff'),
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.otf) format('opentype');
+ }
+
+a {
+	text-decoration:none;
+	color: #191919;
+}
+
+a:focus, a:hover, a:active {
+	text-decoration:none;
+}
+
+
+blockquote, q {
+	quotes: none;
+}
+
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+#pc {display:block}
+#mobile {display:none;}
+
+.language {
+    font-size: 16px;
+    text-align: right;
+    color: #757575;
+    padding-top:20px;
+}
+
+.language_m {
+    font-size: 16px;
+    text-align: center;
+    color: #757575;
+    padding-top:20px;
+}
+
+
+.logo {
+    font-size: 45px;
+    font-weight: 500;
+    letter-spacing: -1.7px;
+    text-align: center;
+    color: #191919;
+}
+
+.main_menu {
+    font-size: 16px;
+    text-align: center;
+    color: #191919;
+    margin-top:26px;
+}
+
+
+.gift_language {
+    font-size: 16px;
+    text-align: right;
+    color: #fff;
+    padding-top:20px;
+}
+
+.gift_language a {color:#fff;}
+
+.gift_logo {
+    font-size: 45px;
+    font-weight: 500;
+    letter-spacing: -1.7px;
+    text-align: center;
+    color: #fff;
+}
+
+.gift_logo a {color:#fff;}
+
+.gift_main_menu {
+    font-size: 16px;
+    text-align: center;
+    color: #fff;
+    margin-top:18px;
+}
+
+.gift_main_menu a {color:#fff;}
+
+.main_menu li {
+    1width:14.28%;
+	width:20%;
+	float:left;
+}
+
+.main_menu li a:hover {
+    font-weight:900;
+	border-bottom:3px solid #191919;
+}
+
+
+.gift_main_menu li {
+    width:14.28%; 
+	float:left;
+}
+
+.gift_main_menu li a:hover {
+    font-weight:900;
+	border-bottom:3px solid #fff;
+}
+
+
+.main_title_text {
+ 
+    font-size: 40px;
+    font-weight: 900;
+    text-align: center;
+    color: #191919;
+    margin-top:160px;
+
+}
+
+.main_sub_text {
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    color: #191919;
+    margin-top:16px;
+}
+
+.main_title_btn {
+    width:220px;
+    padding:16px 0px;
+    border-radius: 16px;
+    background-color: #191919;
+    margin-top:35px;
+    font-size: 16px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.main_title_btn span {
+    opacity: 0.5;
+}
+
+.main_bottom_text {
+    opacity: 0.5;
+    font-size: 12px;
+    text-align: center;
+    color: #000000;
+    1margin-top:10px;
+}
+
+
+.main_middle_con01 {
+		width: 100%;
+		background-color: #fff;
+		1height: 1150px;
+}
+
+.con01_title_text {
+		font-size: 40px;
+		font-weight: 900;
+		text-align: center;
+		color: #191919;
+		padding-top:80px;
+
+}
+
+.con01_item {
+		float:left;
+		margin:1% 1%;
+		width:48%;
+}
+
+
+.con01_item img{
+		display:block;
+}
+
+.insta_title {
+		margin-top:120px;
+	}
+
+
+.main_left_arrow {
+		position: absolute;
+		top: 50%;
+		width: 88px;
+		height: 88px;
+		z-index: 10;
+		left:0;
+		margin-top:-44px;
+		cursor: pointer;
+		-moz-background-size: 88px 88px;
+		-webkit-background-size: 88px 88px;
+		background-size: 88px 88px;
+		background-position: center;
+		background-repeat: no-repeat;
+		}
+
+.main_right_arrow {
+		position: absolute;
+		top: 50%;
+		width: 88px;
+		height: 88px;
+		z-index: 10;
+		right:0;
+		margin-top:-44px;
+		cursor: pointer;
+		-moz-background-size: 88px 88px;
+		-webkit-background-size: 88px 88px;
+		background-size: 88px 88px;
+		background-position: center;
+		background-repeat: no-repeat;
+        }
+
+
+.main_middle_con03 {
+        background-color: #fff;
+        }
+
+.m_con03_bottom_title_btn {
+		width:220px;
+		padding:16px 0px;
+		border-radius: 16px;
+		background-color: #191919;
+		margin-top:30px;
+		font-size: 16px;
+		text-align: center;
+		color: #ffffff;
+		font-weight: bold;
+        }
+
+.m_con03_bottom_title_btn span {
+	    opacity: 0.5;
+        }
+
+.m_con03_bottom_text {
+		opacity: 0.5;
+		font-size: 14px;
+		text-align: center;
+		color: #000000;
+		margin-top:20px;
+        }
+
+
+.parallax {
+	height:776px;
+	width:100%;
+}
+
+
+.sub_image {padding-top:80px;}
+
+.sub_title_text {
+    font-size: 28px;
+    font-weight: 900;
+    text-align: center;
+    color: #191919;
+	padding-top:27px;
+}
+
+.sub_sub_text {
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    color: #191919;
+}
+
+.sub_title_text01 {
+    font-size: 28px;
+    font-weight: 900;
+    text-align: center;
+    color: #191919;
+	line-height:32px;
+}
+
+
+.gift_sub_title_text {
+    font-size: 28px;
+    font-weight: 900;
+    text-align: center;
+    color: #fff;
+	padding-top:27px;
+}
+
+.gift_sub_sub_text {
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    color: #fff;
+}
+
+
+
+.cart_underline {border-top: 14px solid rgb(214, 111, 255); width: 170px; margin-top: -14px}
+
+
+/* 회사소개 */
+.company_b_text {font-size: 22px; font-weight: 900;}
+.company_s_text {font-size: 14px; margin-top:6px;}
+.company_con_img {margin-top:20px;}
+.company_b_text2 {font-size: 22px; font-weight: 900; margin-top:60px;}
+.company_s_text2 {font-size: 14px; margin-top:6px;}
+
+
+@media screen and (max-width:768px){ 
+#pc {display:none}
+#mobile {display:block;}
+
+
+/* 768부터 모바일까지 */
+.m_logo {
+    font-size: 30px;
+    font-weight: 500;
+    letter-spacing: -1.7px;
+    text-align: left;
+    color: #191919;
+	float:left;
+	margin-left:20px;
+	margin-top:18px;
+}
+
+
+.m_menu {
+    text-align: right;
+	float:right;
+	margin-right:20px;
+	margin-top:20px;
+}
+
+
+.gift_m_logo {
+    font-size: 35px;
+    font-weight: 500;
+    letter-spacing: -1.7px;
+    text-align: left;
+    color: #191919;
+	float:left;
+	margin-left:20px;
+}
+
+
+.gift_m_menu {
+    text-align: right;
+	float:right;
+	margin-right:20px;
+	margin-top:20px;
+}
+
+
+
+.m_main_title_text {
+ 
+    font-size: 28px;
+    font-weight: 900;
+    text-align: center;
+    color: #191919;
+    margin-top:39px;
+
+}
+
+.m_main_sub_text {
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+    color: #191919;
+    margin-top:16px;
+}
+
+
+
+.sub_image {padding-top:30px;}
+
+.sub_title_text {
+ 
+    font-size: 28px;
+    font-weight: 900;
+    text-align: center;
+    color: #191919;
+    margin-top:8px;
+
+}
+
+.sub_title_text01 {
+ 
+    font-size: 28px;
+    font-weight: 900;
+    text-align: center;
+    color: #191919;
+    margin-top:8px;
+
+}
+
+.sub_sub_text {
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+    color: #191919;
+}
+
+.m_main_title_btn {
+    width:180px;
+    padding:16px 0px;
+    border-radius: 16px;
+    background-color: #191919;
+    margin-top:25px;
+    font-size: 14px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.m_main_title_btn span {
+    opacity: 0.5;
+}
+
+
+.m_con01_title_text {
+		font-size: 28px;
+		font-weight: 900;
+		text-align: center;
+		color: #191919;
+		padding-top:20px;
+}
+
+.m_con01_item {
+		padding-top:60px;
+		float:left;
+		margin:0% 2%;
+		width:46%;
+}
+
+.m_main_middle_con02 {background:#fff;}
+
+
+.m_insta_title {
+		padding-top:80px;
+	}
+
+
+.m_main_middle_con03 {
+        background-color: #fff;
+        }
+
+.m_con03_bottom_title_btn {
+		width:180px;
+		padding:16px 0px;
+		border-radius: 16px;
+		background-color: #191919;
+		margin-top:20px;
+		font-size: 14px;
+		text-align: center;
+		color: #ffffff;
+		font-weight: bold;
+        }
+
+.m_con03_bottom_title_btn span {
+	    opacity: 0.5;
+        }
+
+.m_con03_bottom_text {
+		opacity: 0.5;
+		font-size: 14px;
+		text-align: center;
+		color: #000000;
+		margin-top:10px;
+        }
+
+.insta_item {float:left; width:50%}
+.mobile_con_lay {margin:0px 20px;}
+
+
+/* 회사소개 */
+.company_b_text {font-size: 20px; font-weight: 900;}
+.company_s_text {font-size: 16px; margin-top:20px;}
+.company_con_img {margin-top:10px;}
+.company_b_text2 {font-size: 20px; font-weight: 900; margin-top:60px;}
+.company_s_text2 {font-size: 16px; margin-top:20px;}
+
+
+/* 장바구니 */
+.cart_underline {border-top: 10px solid rgb(214, 111, 255); width: 160px; margin-top: -14px}
+}
+
+
+/* 각페이지 관련 */
+.paging { display:table; margin:25px auto 0 auto;}
+.paging ul { float:left; padding:0 }
+.paging ul li { float:left; width:25px; text-align:center; margin-right:2px; margin-left:3px; }
+.paging ul li a { 1background-color:#fff; color:#666; 1border:1px solid #ddd; display:block; padding:4px 0 4px 0; }
+.paging ul li a.on { 1background-color:#edefed; font-weight:bold; border:1px solid #edefed; color:#333; }
+.paging ul li a:hover { 1background-color:#edefed; font-weight:bold; border:1px solid #edefed; color:#333; }
+.paging .arr_page {  }
+.paging .arr_page {1padding-left:0}
+.paging .arr_page li { font-weight:bold; }
+.paging .arr_page li a { color:#645623; }
+
+
+@media screen and (max-width:480px){ 
+
+.insta_item {float:left; width:100%;}
+.con01_item {float:none; margin:4% 1%; width:98%;}
+
+}

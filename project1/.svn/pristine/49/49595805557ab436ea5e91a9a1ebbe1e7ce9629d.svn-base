@@ -1,0 +1,60 @@
+package zipcode;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import semiProject.JdbcDAO;
+
+public class ZipCodeDAO extends JdbcDAO{
+	private static ZipCodeDAO _dao;
+	
+	public ZipCodeDAO() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	static {
+		_dao=new ZipCodeDAO();
+	}
+	
+	public static ZipCodeDAO getDAO() {
+		return _dao;
+	}
+	
+	//동이름으로 시작되는 컬럼값의 모든 행 검색
+	public List<ZipCodeDTO> getZipcodeList (String dong) {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		List<ZipCodeDTO> zipcodeList=new ArrayList<ZipCodeDTO>();
+		
+		
+		try {
+			con=getConnection();
+			
+			String sql="selec*from zipcode where dong like ? || '%' order by zipcode";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, dong);
+			
+			rs=pstmt.executeQuery();
+			
+			while (rs.next()) {
+				ZipCodeDTO zipcode=new ZipCodeDTO();
+				zipcode.setZipcode(rs.getString("zipcode"));
+				zipcode.setDong(rs.getString("dong"));
+				zipcode.setAddress(rs.getString("address"));
+				zipcodeList.add(zipcode);
+			}
+		} catch (SQLException e) {
+			System.out.println("[에러]getZipcodeList() 메소드의 SQL 오류 = "+e.getMessage());
+		} finally {
+			close(con, pstmt, rs);
+		}
+		return zipcodeList;
+				
+	}
+	
+}

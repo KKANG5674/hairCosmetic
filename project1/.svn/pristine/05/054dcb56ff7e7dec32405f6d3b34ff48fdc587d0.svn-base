@@ -1,0 +1,77 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+
+      <div id="pc" style="background-color: #191919;">
+          <ul>
+              <li>
+                  <div style="max-width:460px; margin:0 auto; font-size:12px; color: #474747; text-align:center;">
+                      <ul>
+                          <li style="padding:20px 0px;">
+                              <div>
+                                  <ul>
+                                      <li style="float:left; background:#303030; border-radius:4px; width:100px; text-align:center; padding:3px 0px; margin:7px;"><a href="m_mypage.html#friend" style="color:#545454; font-size:12px; font-weight: 900;">친구추천</a></li>
+                                      <li style="float:left; background:#303030; border-radius:4px; width:100px; text-align:center; padding:3px 0px; margin:7px;"><a href="m_page70f6.html?ps_pname=page_contact" style="color:#545454; font-size:12px; font-weight: 900;">연락처</a></li>
+                                      <li style="float:left; background:#303030; border-radius:4px; width:100px; text-align:center; padding:3px 0px; margin:7px;"><a href="m_page289b.html?ps_pname=page_member" style="color:#545454; font-size:12px; font-weight: 900;">개인정보보호</a></li>
+                                      <li style="float:left; background:#303030; border-radius:4px; width:100px; text-align:center; padding:3px 0px; margin:7px;"><a href="m_page74d7.html?ps_pname=page_private" style="color:#545454; font-size:12px; font-weight: 900;">약관</a></li>
+                                      <div style="clear:both;"></div>
+                                  </ul>
+                              </div>
+                          </li>
+                          <li>주식회사 프랭클리 (Frankly Inc.)</li>
+                          <li style="margin-top:20px;">사업자등록번호 : 305-86-39350 · 통신판매업신고 : 제2018-서울강서-1567호</li>
+                          <li>대표이사 : 송정근 · 개인정보관리책임자 : 남우식</li>
+                          <li></li>
+                          <li style="margin-top:20px;">고객센터 :  02-393-8889 평일 09:00 ~ 18:00 (점심시간 12:00 ~ 13:00) 토, 일, 공휴일 휴무</li>
+                          <li>주소 : 서울시 강서구 공항대로 200, 718호</li>
+                          <li style="margin-top:20px;">Frankly Inc.</li>
+                          <li style="margin-top:4px; padding-bottom:40px;">@ 2018 CODE FOR BEAUTY, INC. ·  ALL RIGHTS RESERVED</li>
+                      </ul>
+                  </div>
+              </li>
+          </ul>
+      </div>
+
+      <div id="mobile" style="background-color: #191919;">
+          <ul>
+              <li>
+                  <div style="max-width:324px; margin:0 auto; font-size:12px; color: #474747; text-align:left;">
+                      <ul>
+                          <li style="padding:20px 0px;">
+                              <div>
+                                  <ul>
+                                      <li style="float:left; background:#303030; border-radius:4px; width:74px; text-align:center; padding:3px 0px; margin:3px;"><a href="m_mypage.html#friend" style="color:#545454; font-size:12px; font-weight: 900;">친구추천</a></li>
+                                      <li style="float:left; background:#303030; border-radius:4px; width:74px; text-align:center; padding:3px 0px; margin:3px;"><a href="m_page70f6.html?ps_pname=page_contact" style="color:#545454; font-size:12px; font-weight: 900;">연락처</a></li>
+                                      <li style="float:left; background:#303030; border-radius:4px; width:74px; text-align:center; padding:3px 0px; margin:3px;"><a href="m_page289b.html?ps_pname=page_member" style="color:#545454; font-size:12px; font-weight: 900;">개인정보보호</a></li>
+                                      <li style="float:left; background:#303030; border-radius:4px; width:74px; text-align:center; padding:3px 0px; margin:3px;"><a href="m_page74d7.html?ps_pname=page_private" style="color:#545454; font-size:12px; font-weight: 900;">약관</a></li>
+                                      <div style="clear:both;"></div>
+                                  </ul>
+                              </div>
+                          </li>
+                          <li>주식회사 프랭클리 (Frankly Inc.)</li>
+                          <li style="margin-top:20px;">사업자등록번호 : 305-86-39350</li>
+                          <li>통신판매업신고 : 제2018-서울강서-1567호</li>
+                          <li>대표이사 : 송정근 · 개인정보관리책임자 : 남우식</li>
+                          <li></li>
+                          <li style="margin-top:20px;">고객센터 :  02-393-8889 평일 09:00 ~ 18:00 (점심시간 12:00 ~ 13:00) 토, 일, 공휴일 휴무</li>
+                          <li>주소 : 서울시 강서구 공항대로 200, 718호</li>
+                          <li style="margin-top:20px;">Frankly Inc.</li>
+                          <li style="margin-top:4px; padding-bottom:40px;">@ 2018 CODE FOR BEAUTY, INC. ·  ALL RIGHTS RESERVED</li>
+                      </ul>
+                  </div>
+              </li>
+          </ul>
+      </div>
+ </body>
+
+<!-- Mirrored from codeforbeauty.com/shop/m_board.php?ps_db=bbs_faq by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Jun 2019 08:29:30 GMT -->
+</html>
+
+<!--
+ Run-time 
+
+ DB Counter Operation Time  : 0.0001
+ DB Query Operation Time : 0.0000
+ Total Program Operation Time : 0.0029
+-->
+

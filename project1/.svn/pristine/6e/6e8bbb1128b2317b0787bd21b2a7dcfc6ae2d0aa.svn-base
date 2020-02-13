@@ -1,0 +1,86 @@
+package comment;
+
+import java.sql.Date;
+/*
+이름          널?       유형             
+----------- -------- -------------- 
+COMMENTNO   NOT NULL NUMBER(10)     
+CONTENT     NOT NULL VARCHAR2(1000) 
+PARENTS     NOT NULL NUMBER(10)     
+SEQ         NOT NULL NUMBER(10)     
+ID          NOT NULL VARCHAR2(20)   
+DATECREATED          DATE         
+ */
+public class CommentDTO {
+    private int commentNo;
+    private String content;
+    private int parents;
+    private int seq;
+    private String id;
+    private Date dateCreated;
+    
+    public CommentDTO() {
+        // TODO Auto-generated constructor stub
+    }
+
+    public CommentDTO(int commentNo, String content, int parents, int seq, String id, Date dateCreated) {
+        super();
+        this.commentNo = commentNo;
+        this.content = content;
+        this.parents = parents;
+        this.seq = seq;
+        this.id = id;
+        this.dateCreated = dateCreated;
+    }
+
+    public int getCommentNo() {
+        return commentNo;
+    }
+
+    public void setCommentNo(int commentNo) {
+        this.commentNo = commentNo;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public int getParents() {
+        return parents;
+    }
+
+    public void setParents(int parents) {
+        this.parents = parents;
+    }
+
+    public int getSeq() {
+        return seq;
+    }
+
+    public void setSeq(int seq) {
+        this.seq = seq;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Date getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(Date dateCreated) {
+        this.dateCreated = dateCreated;
+    }
+    
+    
+}
+

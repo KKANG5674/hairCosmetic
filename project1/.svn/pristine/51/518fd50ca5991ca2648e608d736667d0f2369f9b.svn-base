@@ -1,0 +1,44 @@
+package reply;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import notice.NoticeDTO;
+import semiProject.JdbcDAO;
+
+public class ReplyDAO extends JdbcDAO  {
+    private static ReplyDAO _dao;
+
+    private ReplyDAO() {
+        // TODO Auto-generated constructor stub
+    }
+
+    public static ReplyDAO getDAO() {
+        if (_dao == null) {
+            _dao = new ReplyDAO();
+        }
+        return _dao;
+    }
+    
+    public int addReply(ReplyDTO reply) {
+        Connection con = null;
+        PreparedStatement pstmt = null;
+        int rows = 0;
+        try {
+            con = getConnection();
+
+            String sql = "insert into replytable values(2,?,?,'관리자',sysdate)";
+            pstmt = con.prepareStatement(sql);
+//            pstmt.setInt(1, reply.getReplyNo());
+            pstmt.setString(1, reply.getContent());
+            pstmt.setInt(2, reply.getParents());
+
+            rows = pstmt.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("[에러] addReply() 메소드의 SQL 오류" + e.getMessage());
+        } finally {
+            close(con, pstmt);
+        }
+        return rows;
+    }
+}

@@ -1,0 +1,394 @@
+@charset "UTF-8";
+/*
+색변경: 색 변경하기
+#444f5a 그레이
+#3e4149 다크그레이
+
+#defcf9 연하늘
+#cadefc 연파랑
+#c3bef0 연보라
+#cca8e9 연자주
+*/
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', 'Noto Sans KR', sans-serif;
+}
+html, body {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-family: Arial;
+  background: #f1f1f1;
+  margin: 0 auto;
+}
+table {
+	width: 960px;
+    table-layout: fixed;
+    border: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin-left: 30px;
+}
+caption {
+    overflow: hidden;
+    text-indent: 150%;
+    white-space: nowrap;
+}
+colgroup {
+    display: table-column-group;
+}
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 100;
+  src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff2) format('woff2'),
+       url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.woff) format('woff'),
+       url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Thin.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 300;
+  src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff2) format('woff2'),
+       url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.woff) format('woff'),
+       url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Light.otf) format('opentype');
+}
+
+@font-face {
+   font-family: 'Noto Sans KR';
+   font-style: normal;
+   font-weight: 400;
+   src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2) format('woff2'),
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff) format('woff'),
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.otf) format('opentype');
+ }
+
+@font-face {
+   font-family: 'Noto Sans KR';
+   font-style: normal;
+   font-weight: 500;
+   src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff2) format('woff2'),
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.woff) format('woff'),
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Medium.otf) format('opentype');
+ }
+
+@font-face {
+   font-family: 'Noto Sans KR';
+   font-style: normal;
+   font-weight: 700;
+   src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff2) format('woff2'),
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.woff) format('woff'),
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Bold.otf) format('opentype');
+ }
+
+@font-face {
+   font-family: 'Noto Sans KR';
+   font-style: normal;
+   font-weight: 900;
+   src: url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff2) format('woff2'),
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.woff) format('woff'),
+        url(http://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Black.otf) format('opentype');
+ }
+
+.wrap {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+
+/* Header Title */
+.header {
+  padding: 30px;
+  text-align: center;
+  background: #fff;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #3e4149;
+}
+.topnav ul {
+  padding-left: 0px;
+  margin: 0;
+}
+
+.topnav ul li {
+  list-style:none;
+  display: inline;
+}
+/* Style the topnav links */
+.topnav ul li a {
+  float: left;
+  display: block;
+  color: #cadefc;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav ul li a:hover {
+  background-color: #cca8e9;
+  color: #3e4149;
+}
+
+/* Style the side navigation */
+.container {
+/*     position: fixed;*/
+	height: 100%;
+	position: absolute;
+	width: 100%;
+	overflow: hidden;
+}
+
+.sidenav {
+	width: 200px;
+	height: inherit;
+	float: left;
+	background-color: #ddd;
+    display: flex;
+    height: cac(100%);
+/*   z-index: 1; */
+  
+}
+.sidenav ul {
+  width: 100%;
+  padding-left: 0px;
+}
+
+.sidenav ul li {
+  list-style:none;
+}
+
+/* Side navigation links */
+.sidenav ul li a {
+  color: #3e4149;
+  padding: 5px 16px 5px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 18px;
+}
+
+.sidenav ul li a img {
+     width: 20px;
+     margin-right: 5px;
+}
+
+.sidenav ul li ul li a {
+  color: #3e4149;
+  padding: 5px 16px 5px 32px;
+  text-decoration: none;
+  display: block;
+  font-size: 15px;
+}
+
+/* Change color on hover */
+#click a:hover {
+  background-color: #cadefc;
+  color: #3e4149; 
+}
+
+
+/* Style the content */
+.content {
+  width: 100%;
+  margin-left: 200px;
+  padding-left: 20px;
+}
+
+/* Style the hr */
+hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Style the content */
+#content {
+  margin-left: 10px;
+}
+
+/* Style the notice */
+.input {
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+    margin : 20px 10px;
+}
+
+/* Style the member Table
+#테이블id명{
+    line-height: 1.5;
+    background-color: #fafafa;
+}
+#테이블id명 th {
+    height: 30px;
+    vertical-align: top;
+    background-color: #cadefc;
+}
+#테이블id명 th, #테이블id명 td {
+    padding: 9px 9px 7px;
+    border: 1px solid #cadefc;
+    text-align: left;
+}
+#테이블id명 select, #테이블id명 input {
+    height: 25px;
+}   
+# 버튼id명 {
+    text-align: center;
+    border: 1px solid #cadefc;
+    background: #cadefc;
+    color: #3e4149;
+}
+#테이블id명 tr:first-child{
+    padding: 9px 9px 7px;
+    border: 1px solid #cadefc;
+    text-align: center;
+    background-color: #cadefc;
+    font-weight: bold;
+}
+ */
+#optionArea{
+    line-height: 1.5;
+    background-color: #fafafa;
+}
+#optionArea th {
+	height: 30px;
+    vertical-align: top;
+    background-color: #cadefc;
+}
+#optionArea select, #optionArea input {
+	height: 25px;
+}
+#optionArea th, #optionArea td {
+    padding: 9px 9px 7px;
+    border: 1px solid #cadefc;
+    text-align: left;
+}
+/* 버튼 */
+#select {
+	text-align: center;
+	border: 1px solid #cadefc;
+	background: #cadefc;
+	color: #3e4149;
+}
+/* 회원목록 */
+#optionArea2 {
+    line-height: 1.5;
+    background-color: #fafafa;
+}
+#optionArea2 th, #optionArea2 td {
+    padding: 9px 9px 7px;
+    border: 1px solid #cadefc;
+    font-weight: normal;
+}
+#optionArea2 tr:first-child{
+	padding: 9px 9px 7px;
+    border: 1px solid #cadefc;
+    text-align: center;
+    background-color: #cadefc;
+    font-weight: bold;
+}
+/* 버튼 */
+#update, #delete {
+    text-align: center;
+    border: 1px solid #cadefc;
+    background: #cadefc;
+    color: #3e4149;
+}
+
+/* Style the notice_admin_input */
+#notice_input {
+	text-align: center;
+	width: 70%;
+    line-height: 1.5;
+    background-color: #fafafa;
+}
+#notice_input th {
+    height: 30px;
+    vertical-align: top;
+    background-color: #cadefc;
+}
+#notice_input th, #notice_input td {
+    padding: 9px 9px 7px;
+    border: 1px solid #cadefc;
+    text-align: left;
+}
+
+/* 버튼 */
+#insert {
+	height: 30px;
+    text-align: center;
+    border: 1px solid #cadefc;
+    background: #cadefc;
+    color: #3e4149;
+}
+#cancel {
+	height: 30px;
+    text-align: center;
+    border: 1px solid #cadefc;
+    background: #ffffff;
+    color: #3e4149;
+}
+
+/* Style the notice_admin */
+
+/* 회원목록 */
+#noice_list {
+	margin-top: 15px;
+    line-height: 1.5;
+    background-color: #fafafa;
+}
+#noice_list th, #noice_list td {
+    padding: 9px 9px 7px;
+    border: 1px solid #cadefc;
+    font-weight: normal;
+}
+#noice_list tr:first-child{
+    padding: 9px 9px 7px;
+    border: 1px solid #cadefc;
+    text-align: center;
+    background-color: #cadefc;
+    font-weight: bold;
+}
+
+/* 버튼 */
+#wrteBtn {
+	margin-left: 30px;
+    text-align: center;
+    border: 3px solid #cadefc;
+    background: #cadefc;
+    color: #3e4149;
+   
+}
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .topnav a {
+    float: none;
+    width: 100%;
+  }
+}

@@ -1,0 +1,18 @@
+package order;
+
+import semiProject.JdbcDAO;
+
+public class orderDAO extends JdbcDAO {
+    private static orderDAO _dao;
+    
+    private orderDAO() {
+        // TODO Auto-generated constructor stub
+    }
+    
+    public static orderDAO getDAO() {
+        if(_dao==null) {
+            _dao=new orderDAO();
+        }
+        return _dao;
+    }
+}

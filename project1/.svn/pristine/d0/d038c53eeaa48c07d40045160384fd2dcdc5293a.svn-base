@@ -1,0 +1,52 @@
+package member;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import semiProject.JdbcDAO;
+
+public class MemberDAO extends JdbcDAO {
+	private static MemberDAO _dao;
+	
+	private MemberDAO() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	static {
+		_dao=new MemberDAO();
+	}
+	
+	public static MemberDAO getDAO() {
+		return _dao;
+	}
+	
+	//회원가입 (insert) 메소드
+	public void insertMember(MemberDTO memberDTO) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+
+		try {
+			con =getConnection();
+			con.setAutoCommit(false);
+			// 회원가입시 회원 권한 = '1'로 설정
+			String query = "insert into membertable values(membertable_seq.nextval,?,?,?,?,?,?,?,sysdate,'1')";
+			pstmt = con.prepareStatement(query);
+			//pstmt.setString(1, order.getId());
+			pstmt.setString(1, memberDTO.getId());
+			pstmt.setString(2, memberDTO.getPassword());
+			pstmt.setString(3, memberDTO.getName());
+			pstmt.setString(4, memberDTO.getAddress());
+			pstmt.setString(5, memberDTO.getSex());
+			pstmt.setString(6, memberDTO.getBirthday());
+			pstmt.setString(7, memberDTO.getPhone());
+			pstmt.executeUpdate();
+			con.commit();
+		} catch (Exception e) {
+			con.rollback();
+			System.out.println("[에러] qryInsert() 메소드의 SQL 오류" + e.getMessage());
+		} finally {
+			close(con, pstmt);
+		}
+	}
+}

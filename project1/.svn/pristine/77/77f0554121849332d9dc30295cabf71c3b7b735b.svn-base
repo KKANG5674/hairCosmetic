@@ -1,0 +1,194 @@
+<%@page import="semiProject.OrderDTO"%>
+<%@page import="java.util.List"%>
+<%@page import="semiProject.OrderDAO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%
+	String search = request.getParameter("search");
+	if (search == null)
+		search = "";
+	String keyword = request.getParameter("keyword");
+	if (keyword == null)
+		keyword = "";
+	List<OrderDTO> orderSearchList = OrderDAO.getDAO().getorderSearchList(search, keyword);
+%>
+<div id="content">
+	<div id="header">
+		<h2>주문관리</h2>
+	</div>
+	<div id="section">
+		<div>
+			<form name="orderSelectForm" id="orderSelectForm">
+				<table id="optionArea" border="1">
+					<caption>주문관리 조회</caption>
+					<colgroup>
+						<col width="140px" />
+						<col width="670px" />
+						<col width="150px" />
+					</colgroup>
+					<tbody>
+						<tr>
+							<th scope="row">검색어</th>
+							<td><select name="search" class="fSelect">
+									<option value="" selected>---- 선택 ----</option>
+									<option value="no">주문번호</option>
+									<option value="id">아이디</option>
+									<option value="ordername">이름</option>
+							</select> <input type="text" name="keyword" id="keyword"
+								style="width: 240px;"></td>
+
+							<td rowspan="3" style="text-align: center; padding: 5px"><input
+								id="selectWordBtn" type="submit" value="검색"> <input
+								id="resetWordBtn" type="button" value="초기화"></td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
+		</div>
+	</div>
+	</div>
+
+	<!-- 주문 목록 -->
+
+	<div id="section">
+		<form name="orderForm" id="orderForm">
+			<table id="optionArea2">
+				<caption>주문정보검색목록</caption>
+				<colgroup>
+					<col width="120px" />
+					<col width="80px" />
+					<col width="80px" />
+					<col width="190px" />
+					<col width="150px" />
+					<col width="150px" />
+					<col width="150px" />
+					<col width="140px" />
+					<col width="140px" />
+					<col width="140px" />
+					<col width="140px" />
+					<col width="140px" />
+				</colgroup>
+				<tbody>
+					<tr id="option">
+						<th><input type="checkbox" id="allCheck"></th>
+						<th>주문일</th>
+						<th>주문번호</th>
+						<th>아이디</th>
+						<th>이름</th>
+						<th>상품</th>
+						<th>결제완료여부</th>
+						<th>배송상태</th>
+						<th>입금은행</th>
+						<th>입금자명</th>
+						<th>총금액</th>
+						<th id="check">체크</th>
+					</tr>
+					<%
+						for (OrderDTO order : orderSearchList) {
+					%>
+					<tr>
+						<th><input type="checkbox" name="checkId"
+							value="<%=order.getNo() %>" class="check"></th>
+						<%-- 주문 상태 --%>
+						<%-- 주문일 --%>
+						<th><%=order.getOrderDate()%></th>
+						<%-- 주문번호 --%>
+						<th><%=order.getNo()%></th>
+						<%-- 아이디 --%>
+						<th><%=order.getId()%></th>
+						<%-- 이름 --%>
+						<th><%=order.getName()%></th>
+						<%-- 상품 --%>
+						<th><%=order.getProSelect()%></th>
+						<%-- 결제완료여부 --%>
+						<th><%if(order.getPayment().equals("결제대기")){%>
+							<select name="search" class="fSelect">
+								<option value="N" selected>결제대기</option>
+								<option value="Y">결제완료</option></select>
+						<%}else{
+						%>
+							<select name="search" class="fSelect">
+								<option value="N">결제대기</option>
+								<option value="Y"selected>결제완료</option></select>
+						<% }%>
+						</th>
+						<%-- 배송상태 --%>
+						<th><%if(order.getDelivery().equals("배송준비")){%>
+							<select name="search" class="fSelect">
+								<option value="deliveryReady" selected>배송준비</option>
+								<option value="do">배송중</option>
+								<option value="done">배송완료</option></select>
+						<%}else if(order.getDelivery().equals("배송중")){%>
+							<select name="search" class="fSelect">
+							<option value="deliveryReady">배송준비</option>
+							<option value="do" selected>배송중</option>
+							<option value="done">배송완료</option></select>
+						<%} else if(order.getDelivery().equals("배송완료")){%>
+							<select name="search" class="fSelect">
+							<option value="deliveryReady" >배송준비</option>
+							<option value="do">배송중</option>
+							<option value="done" selected>배송완료</option></select>
+						<% }%>
+						</th>
+						<%-- 입금은행 --%>
+						<th><%=order.getDepositBank()%></th>
+						<%-- 입금자명 --%>
+						<th><%=order.getDepositName()%></th>
+						<%-- 현금영수증 --%>
+						<th><%=order.getTotalCash()%></th>
+						<th id=#check><input id="update" type="button" value="변경">
+							<button type="button" id="removeBtn">삭제</button>
+					</tr>
+					<%
+						}
+					%>
+
+				</tbody>
+			</table>
+
+		</form>
+		<p>
+			<button type="button" id="removeBtn">선택주문삭제</button>
+		</p>
+		<div id="message" style="color: red;"></div>
+	</div>
+
+
+	<script type="text/javascript">
+$("#allCheck").change(function() {
+	if($(this).is(":checked")) {
+		$(".check").prop("checked",true);
+	} else {
+		$(".check").prop("checked",false);
+	}	
+});
+
+$("#removeBtn").click(function() {
+	if($(".check").filter(":checked").size()==0) {
+		$("#message").text("선택한 주문이 하나도 없습니다.");
+		return;
+	}
+	
+	$("#orderForm").attr("method","post");
+	$("#orderForm").attr("action","<%=request.getContextPath()%>/codeforbeauty.com/shop/admin/content/order_admin_remove_action.jsp");
+	$("#orderForm").submit();
+});
+
+$("#selectWordBtn").click(function() {
+	
+	 
+	$("#orderSelectForm").attr("method","post");
+	$("#orderSelectForm").attr("action","<%=request.getContextPath()%>/codeforbeauty.com/shop/admin/index_admin.jsp?workgroup=content&work=order_admin");
+	$("#orderSelectForm").submit();
+	
+});
+
+$("#resetWordBtn").click(function() {
+	
+	$("#keyword")
+	$("#orderSelectForm").attr("method","post");
+	$("#orderSelectForm").attr("action","<%=request.getContextPath()%>/codeforbeauty.com/shop/admin/index_admin.jsp?workgroup=content&work=order_admin");
+	$("#orderSelectForm").submit();
+
+						});
+	</script>

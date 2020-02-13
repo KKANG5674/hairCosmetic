@@ -1,0 +1,61 @@
+package cart;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import semiProject.JdbcDAO;
+
+public class CartDAO extends JdbcDAO {
+	private static CartDAO _dao;
+	
+	private CartDAO() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	static {
+		_dao=new CartDAO();
+	}
+	
+	public static CartDAO getDAO() {
+		return _dao;
+	}
+	
+	//주문하기 (insert) 메소드
+	public void insertcart(CartDTO cart) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+
+		try {
+			con =getConnection();
+			
+			con.setAutoCommit(false);
+			String query = "insert into carttable values(carttable_seq.nextval,sysdate,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			pstmt = con.prepareStatement(query);
+			//pstmt.setString(1, cart.getId());
+			pstmt.setString(1, cart.getId());
+			pstmt.setString(2, cart.getHairType());
+			pstmt.setString(3, cart.getHairBold());
+			pstmt.setString(4, cart.getHairDamage());
+			pstmt.setString(5, cart.getHeadType());
+			pstmt.setString(6, cart.getProductFuntion());
+			pstmt.setString(7, cart.getShampooColor());
+			pstmt.setString(8, cart.getConditionColor());
+			pstmt.setString(9, cart.getSmell());
+			pstmt.setString(10, cart.getSmellPower());
+			pstmt.setString(11, cart.getCodeName());
+			pstmt.setString(12, cart.getHashTagOne());
+			pstmt.setString(13, cart.getHashTagTwo());
+			pstmt.setString(14, cart.getHashTagThree());
+			pstmt.setString(15, cart.getProSelect());
+			pstmt.setString(16, cart.getPrice());
+			pstmt.executeUpdate();
+			con.commit();
+		} catch (Exception e) {
+			con.rollback();
+			System.out.println("[에러] qryInsert() 메소드의 SQL 오류" + e.getMessage());
+		} finally {
+			close(con, pstmt);
+		}
+	}
+}

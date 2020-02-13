@@ -1,0 +1,42 @@
+<%@page import="semiProject.OrderDAO"%>
+<%@page import="semiProject.OrderDTO"%>
+<%@page import="javafx.scene.control.RadioMenuItem"%>
+<%@page import="java.net.URLDecoder"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+//캐릭터 인코딩
+request.setCharacterEncoding("UTF-8");
+//DAO DTO 객체 생성
+OrderDTO orderDTO = new OrderDTO();
+OrderDAO orderDAO = OrderDAO.getDAO();
+
+//DTO에 파라미터값 삽입
+orderDTO.setHairType(request.getParameter("goods_option1"));	//모발 타입 
+orderDTO.setHairBold(request.getParameter("goods_option2"));	//모발 굵기
+orderDTO.setHairDamage(request.getParameter("goods_option3"));	//모발 손상정도
+orderDTO.setHeadType(request.getParameter("goods_option4"));	//두피 타입
+
+String[] value =request.getParameterValues("goods_option5[]");// 제품기능 배열저장
+int count =value.length;
+String productFuntion = "";
+for(int i=0;i<count;i++){
+	productFuntion += (value[i]+",");
+} 
+productFuntion=productFuntion.substring(0, productFuntion.length()-1);//마지막 ',' 지우기
+orderDTO.setProductFuntion(productFuntion); //제품 기능 (선택 최대 5가지)
+
+orderDTO.setShampooColor(request.getParameter("goods_option6"));	//샴푸 색상
+orderDTO.setConditionColor(request.getParameter("goods_option7")); //컨디셔너 색상
+orderDTO.setSmell(request.getParameter("goods_option8"));	//샴푸컨디셔너향
+orderDTO.setSmellPower(request.getParameter("goods_option9"));	//향 강도
+orderDTO.setCodeName(request.getParameter("codename"));//코드네임
+orderDTO.setHashTagOne(request.getParameter("hashtag1"));//해쉬태그 1	
+orderDTO.setHashTagTwo(request.getParameter("hashtag2"));//해쉬태그 2
+orderDTO.setHashTagThree(request.getParameter("hashtag3"));//해쉬태그 3
+orderDTO.setProSelect(request.getParameter("goods_option10")); //제품 구성
+
+orderDAO.insertorder(orderDTO);
+
+out.println("<script>location.href='../m_cart.html';</script>");
+%>

@@ -1,0 +1,162 @@
+<%@page import="reply.ReplyDAO"%>
+<%@page import="reply.ReplyDTO"%>
+<%@page import="oracle.net.aso.q"%>
+<%@page import="member.MemberDTO"%>
+<%@page import="question.QuestionDAO"%>
+<%@page import="question.QuestionDTO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+   //비정상적인 요청에 대한 응답처리 => 전달값이 존재하지 않을 경우
+    if(request.getParameter("num")==null){
+        out.println("<script>");
+        out.println("location.href='"+request.getContextPath()+"/codeforbeauty.com/shop/admin/index_admin.jsp?workgroup=content&work=question_admin';");
+        out.println("</script>");
+        return;
+    }
+
+    //전달값을 반환받아 저장
+    int num=Integer.parseInt(request.getParameter("num"));
+    String pageNum=request.getParameter("pageNum");
+    String search=request.getParameter("search");
+    String keyword=request.getParameter("keyword");
+    String number = request.getParameter("number");
+    
+    //게시글 번호를 전달하여 questiontable 테이블에 저장된 게시글을 검색하여 반환하는 DAO 클래스의 메소드 호출
+    //게시글 검색 반환
+    QuestionDTO question=QuestionDAO.getDAO().getBoard(num);
+    
+     //등록데이터 불러오기
+     ReplyDTO reply= ReplyDAO.getDAO().getReplyNo(num);
+     
+     int parents = (Integer)ReplyDAO.getDAO().getParents(num);
+    
+    //비정상적인 요청에 대한 응답 처리
+    // => 검색된 게시글이 없는 경우
+        if(question==null) {
+            out.println("<script>");
+            out.println("location.href='"+request.getContextPath()+"/codeforbeauty.com/shop/admin/index_admin.jsp?workgroup=content&work=question_admin';");
+            out.println("</script>");
+            return;
+        }
+
+
+%>
+<style>
+#question_detail th {
+    text-align: center;
+}
+#question_detail th, #question_detail td {
+    border: 1px solid #a2c7ff;
+    word-break:break-all;
+}
+</style>
+<div id="content">
+        <form action="<%=request.getContextPath() %>/codeforbeauty.com/shop/admin/content/question_admin_reply_action.jsp" method="post" id="questionForm2">
+
+            <h2>문의하기</h2>
+            <div style="width: 960px;">
+            <table id="question_detail">
+                
+                <tr>
+                    <th>작성자</th>
+                    <td>
+                        <%=question.getId() %>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <th>작성일</th>
+                    <td><%=question.getDateCreated().substring(0, 19) %></td>
+                </tr>
+                
+                <tr>
+                    <th>제목</th>
+                    <td class="title">
+                        <%=question.getTitle() %>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <th>내용</th>
+                    <td class="content" style=" height: 500px; vertical-align: text-top;">
+                        <%=question.getContent().replace("\n", "<br>") %>
+                    </td>
+                </tr>
+                
+                
+                
+                <%if(parents==num){ %>
+                <tr>
+                    <th scope="row">답변</th>
+                    <td class="content" style=" height: 200px; vertical-align: text-top; word-break:break-all;">
+                       <span style="color: #69a5ff">[이미 처리된 문의글입니다.]</span><br><br>
+                     <%=reply.getContent().replace("\n", "<br>") %>
+                  </td>
+                </tr>
+                <%}else {%>
+                
+                <tr>
+                    <th scope="row" style="padding-top: 45px;">답변</th>
+                    <td>
+                    <textarea name="reply" id="reply" cols="60" rows="5" placeholder="친절하고 빠른 답변을 주시길 바랍니다."
+                              style="margin: 0px; width: 95%; resize: vertical; "></textarea>
+                    </td>
+                </tr>
+               
+                <%} %>
+               
+            </table>
+            <input type="hidden" name="parents" value="<%=question.getNum()%>">
+            
+            <br>
+			<div id="message" style="color: red;"></div>
+      <div style="margin-left: 20px; text-align: center;">
+            <br>
+            <button type="button" id="removeBtn">글삭제</button>&nbsp;&nbsp;
+            <button type="button" id="listBtn">게시글목록</button>&nbsp;&nbsp;
+            
+             <%if(parents==num){ %>
+            <%}else {%>
+            <button type="submit" id="saveBtn">답글 등록</button>
+            <%} %>
+       </div>  
+       </div> 
+    </form>  
+</div>  
+  
+<form id="questionForm" method="post">
+    <input type="hidden" name="num" value="<%=num%>">
+    <input type="hidden" name="pageNum" value="<%=pageNum%>">
+    <input type="hidden" name="search" value="<%=search%>">
+    <input type="hidden" name="keyword" value="<%=keyword%>">
+</form> 
+
+<script type="text/javascript">
+$("#removeBtn").click(function() {
+    if(confirm("정말로 삭제 하시겠습니까?")) {
+        $("#questionForm").attr("action", "<%=request.getContextPath()%>/codeforbeauty.com/shop/admin/content/question_admin_remove_action.jsp");
+        $("#questionForm").submit();
+    }
+    });
+
+$("#saveBtn").click(function() {
+	
+	if($("#reply").val()=="") {
+		$("#message").text("답변내용을 작성해주세요.");
+		$("#reply").focus();
+		return false;
+	}
+
+});
+
+$("#listBtn").click(function() {
+    $("#questionForm").attr("action", "<%=request.getContextPath()%>/codeforbeauty.com/shop/admin/index_admin.jsp?workgroup=content&work=question_admin");
+    $("#questionForm").submit();
+    
+
+});
+
+</script> 
+
+        

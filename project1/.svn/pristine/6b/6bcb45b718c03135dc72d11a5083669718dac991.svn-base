@@ -1,0 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+
+<div id="content">
+    <div id="header">
+        <h2>공지사항 관리</h2>
+    </div>
+    <!-- 고객 검색 -->
+    <div id="section">
+        <div id="optionArea">
+        </div>
+    </div>
+    <!-- 고객 목록 -->
+    <div id="section">
+        <div id="mTitle">
+            <h2>공지사항 목록</h2>
+        </div>
+    </div>
+    
+</div>
+
+</body>
+</html>

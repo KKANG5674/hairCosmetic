@@ -1,0 +1,277 @@
+@charset "UTF-8";
+
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, img {
+    margin: 0;
+    padding: 0;
+    
+}
+
+body {
+    min-width: 1580px;
+    max-width: 1920px;
+    height: 100%;
+    word-spacing: -1px;
+    background: #ecf0f7;
+}
+
+#content {
+    min-height: 750px;
+    padding: 0 40px 40px;
+    box-sizing: border-box;
+    vertical-align: top;
+}
+
+.mTitle h2 {
+    display: inline-block;
+    height: 22px;
+    padding: 0 5px 0 0;
+    font-size: 25px;
+    line-height: 18px;
+    color: #2e3039;
+    font-weight: normal;
+    vertical-align: middle;
+}
+
+.mTitle span.desc {
+    font-size: 14px;
+    color: #969daa;
+    
+}
+
+mDashStatus order {
+	height: 80px;
+}
+/*
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+*/
+
+.mDashSales {
+    display: flex;
+    background: #fff;
+    height: 150px;
+    border-radius: 2px;
+    box-shadow: 0px 2px 1px 0px rgba(205,211,222,1);
+    transition: .2s ease-out;
+}
+
+.mDashSales .item {
+   position: relative;
+    flex: 1;
+    display: block;
+    height: 147px;
+    padding: 42px 40px 45px 180px;
+    color: #2e3039;
+    box-sizing: border-box;
+    transition: .3s ease-out;
+}
+
+a {
+    text-decoration: none;
+    color: #2e3039;
+}
+
+.mDashSales .item.payment:before {
+    background-position: -72px 0; 
+}
+
+.mDashSales .item:before {
+    content: "";
+    position: absolute;
+    top: 37px;
+    left: 70px;
+    display: block;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background-color: #c9cfe0;
+    background-image: url(//img.echosting.cafe24.com/ec/mode/influencer/common/sfix_dashboard_sales.png);
+    background-repeat: no-repeat;
+}
+
+.mDashSales .item:not(:last-child):after {
+    content: "";
+    position: absolute;
+    top: 41px;
+    right: 0;
+    display: block;
+    width: 1px;
+    height: 69px;
+    background: #ebf0f5;
+    
+}
+
+.mDashSales .title {
+   
+    order: 3;
+    display: inline;
+    padding:50px;
+  	height:50px;
+    width: 100%;
+    margin-top: 40px 0 0 red;
+    font-size: 30px;
+    font-weight: normal;
+      border: 1px solid red;
+}
+
+.data {
+    font-size: 25px;
+    font-weight: normal;
+     border: 1px solid red;
+}
+
+.mTitle {
+    position: relative;
+    margin: 40px 0 14px;
+}
+
+.board1 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.mDashStatus:not(:last-child) {
+    margin-right: 20px;
+}
+
+.mDashStatus {
+    flex: 1;
+    text-align: center;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0px 2px 1px 0px rgba(205,211,222,1);
+    transition: .2s ease-out;
+}
+
+.mDashStatus .item {
+    display: flex;
+    flex-wrap: wrap; 
+    align-items: center;
+    justify-content: center;
+    min-height: 147px;
+    padding: 36px 0;
+    box-sizing: border-box;
+}
+
+.order {
+   
+    min-height: 140px;
+    
+}
+
+.mDashStatus:not(:last-child) {
+    margin-right: 20px;
+}
+
+div {
+    display: block;
+}
+
+.mDashStatus .title {
+    order: 3;
+    display: block;
+    width: 100%;
+    margin: 17px 0 0;
+    font-size: 20px;
+    color: #5ea5fe;
+    font-weight: normal;
+}
+
+.mDashStatus .count {
+	padding:20px;
+    position: relative;
+    display: inline-block;
+    font-size: 36px;
+    line-height: 28px;
+    font-weight: bold;
+}
+
+/*------게시판---------------------------------*/
+
+
+/*
+.board1.nowrap {
+    flex-wrap: nowrap;
+}
+
+
+.grid notice{
+	margin-top: 40px;
+}
+
+
+.dashboardArea .notify {
+    margin: 40px 0 0;
+}
+
+.dashboardArea .notify .grid.notice {
+    width: 975px;
+}
+
+.board1 .grid {
+    flex: auto;
+}
+
+.mDashNotice {
+    height: 100%;
+    margin: 0 0 0 20px;
+}
+
+.mDashNotice .tab {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    width: 630px;
+}
+
+.mDashNotice .tab ul {
+    display: flex;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+.mDashNotice .tab li {
+    position: relative;
+    display: inline-block;
+    flex: 1;
+    text-align: center;
+    margin: 0 0 0 -1px;
+}
+
+.mDashNotice .tab li.selected:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    margin: 0 0 -2px;
+    background: #5e99e4;
+}
+
+.mDashNotice .tab li.selected a {
+    border-bottom-color: #fff;
+    color: #5ea5fe;
+    background: #fff;
+}
+
+.mDashNotice .tab li a {
+    display: block;
+    padding: 12px 0;
+    font-size: 14px;
+    color: #6e6e6e;
+    line-height: 1;
+    border: 1px solid #e4e8f0;
+    background: #f5f7fb;
+}
+
+*/
+
+

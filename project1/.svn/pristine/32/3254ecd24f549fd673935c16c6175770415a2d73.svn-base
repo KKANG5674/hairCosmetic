@@ -1,0 +1,125 @@
+<%@page import="semiProject.OrderDTO"%>
+<%@page import="java.util.List"%>
+<%@page import="semiProject.OrderDAO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+    
+    List<OrderDTO> orderList = OrderDAO.getDAO().getOrderList();
+    
+%>
+<div id="content">
+    <div id="header">
+        <h2>주문관리</h2>
+    </div>
+     <div id="section">
+        <div>
+        <form name="orderSelectForm" id="orderSelectForm">
+            <table id="optionArea" border="1">
+                <caption>주문관리 조회</caption>
+                <colgroup>
+                    <col width="140px" />
+                    <col width="670px" />
+                    <col width="150px" />
+                </colgroup>
+                <tbody>
+                <tr>
+                    <th scope="row">검색어</th>
+                    <td>
+                        <select name="search_type" class="fSelect">
+                            <option value="" selected>---- 선택 ----</option>
+                            <option value="no">주문번호</option>
+                            <option value="member_id">아이디</option>
+                            <option value="name">이름</option>
+                        </select>
+                        <input type="text" name="type" value="" class="fText" style="width:240px;">
+                    </td>
+                    
+                    <td rowspan="3" style="text-align: center; padding: 5px">
+                           <input id="select" type="button" value="검색">
+                           <input id="select" type="button" value="초기화">
+                    </td>      
+                   
+                </tr>
+                                
+  <!-- 주문 목록 -->
+    <div>
+       <br>
+    </div>
+    <div id="section">
+        <div>
+            <table id="optionArea2">
+                <caption>주문정보검색목록</caption>
+                <colgroup>
+                    <col width="120px" />
+                    <col width="80px" />
+                    <col width="80px" />
+                    <col width="190px" />
+                    <col width="150px" />
+                    <col width="150px" />
+                    <col width="150px" />
+                    <col width="140px" />
+                    <col width="140px" />
+                    <col width="140px" />
+                    <col width="140px" />
+                    <col width="140px" />
+                </colgroup>
+                <tbody>
+                    <tr id="option">
+                        <th><input type="checkbox" id="allCheck"></th>
+                        <th>주문일</th>
+                        <th>주문번호</th>
+                        <th>아이디</th>
+                        <th>이름</th>
+                        <th>상품</th>
+                        <th>결제완료여부</th>
+                        <th>배송상태</th>
+                        <th>입금은행</th>
+                        <th>입금자명</th>
+                        <th>현금영수증</th>
+                        <th id="check">체크</th>
+                    </tr>
+                     <% for(OrderDTO order:orderList) { %>
+                    <tr>
+                    	<th>
+                    	<input type="checkbox" name="checkId" value="<%=order.getId()%>" class="check">
+                    	</th>
+                    	<%-- 주문 상태 --%>
+                        <%-- 주문일 --%>
+                        <th><%=order.getOrderDate() %></th>
+                        <%-- 주문번호 --%>
+                        <th><%=order.getNo() %></th>
+                        <%-- 아이디 --%>
+                        <th><%=order.getId() %></th>
+                        <%-- 이름 --%>
+                        <th><%=order.getName() %></th>
+                        <%-- 상품 --%>
+                        <th><%=order.getProSelect() %></th>
+                        <%-- 결제완료여부 --%>
+                        <th><%=order.getPayment() %></th>
+                        <%-- 배송상태 --%>
+                        <th><%=order.getDelivery() %></th>
+                        <%-- 입금은행 --%>
+                        <th><%=order.getDepositBank() %></th>
+                        <%-- 입금자명 --%>
+                        <th><%=order.getDepositName() %></th>
+                         <%-- 현금영수증 --%>
+                        <th><%=order.getTotalCash() %></th>
+                         <th id=#check>
+                            <input id="update" type="button" value="변경">
+                            <input id="delete" type="button" value="삭제">
+                        </th>
+                    </tr>
+                    <% } %>
+                              
+                       
+                    </tr>
+                    
+                </tbody>
+            </table>
+            
+             <p><button type="button" id="removeBtn">선택회원삭제</button></p>
+          </form>
+        </div>
+    </div>
+</div>

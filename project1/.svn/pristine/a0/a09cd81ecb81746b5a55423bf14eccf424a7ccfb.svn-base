@@ -1,0 +1,129 @@
+<%@page import="member.MemberDTO"%>
+<%@page import="java.util.List"%>
+<%@page import="member.MemberDAO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+    
+    List<MemberDTO> memberList = MemberDAO.getDAO().getMemberList();
+    
+%>
+<div id="content">
+    <!-- 회원 검색 -->
+    <div id="header">
+        <h2>회원검색</h2>
+    </div>
+    <div id="section">
+        <div>
+            <table id="optionArea" border="1">
+                <caption>회원정보 조회</caption>
+                <colgroup>
+                    <col width="140px" />
+                    <col width="670px" />
+                    <col width="150px" />
+                </colgroup>
+                <tbody>
+                <tr>
+                    <th scope="row">검색어</th>
+                    <td>
+                        <select name="search_type" class="fSelect">
+                            <option value="" selected>---- 선택 ----</option>
+                            <option value="name">이름</option>
+                            <option value="member_id">아이디</option>
+                            <option value="mobile">휴대폰번호</option>
+                        </select>
+                        <input type="text" name="type" style="width:240px;">
+                    </td>
+                    <td tyle="text-align: center; padding: 5px">
+                           <input id="select" type="button" value="검색">
+                           <input id="select" type="button" value="초기화">
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">나이</th>
+                    <td>
+                        <input type="number" name="age1" value="" class="numberic fText right" style="width:50px;" min="1">세 -
+                        <input type="number" name="age2" value="" class="numberic fText right" style="width:50px;" min="1">세
+                    </td>
+                    <td tyle="text-align: center; padding: 5px">
+                           <input id="select" type="button" value="검색">
+                           <input id="select" type="button" value="초기화">
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">가입일</th>
+                    <td>
+                        <div>
+                            <input type="date" id="regist_start_date">  -  
+                            <input type="date" id="regist_end_date" max="sysdate">
+                        </div>    
+                    </td>
+                    <td tyle="text-align: center; padding: 5px">
+                           <input id="select" type="button" value="검색">
+                           <input id="select" type="button" value="초기화">
+                    </td>
+                </tr>
+                
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- 회원 목록 -->
+    <div>
+        <h2>회원목록</h2>
+    </div>
+    <div id="section">
+        <div>
+            <table id="optionArea2">
+                <caption>회원정보검색목록</caption>
+                <colgroup>
+                    <col width="140px" />
+                    <col width="140px" />
+                    <col width="150px" />
+                    <col width="160px" />
+                    <col width="60px" />
+                    <col width="160px" />
+                    <col width="150px" />
+                    <col width="150px" />
+                </colgroup>
+                <tbody>
+                    <tr id="option">
+                        <th>회원번호</th>
+                        <th>아이디</th>
+                        <th>이름</th>
+                        <th>주소</th>
+                        <th>성별</th>
+                        <th>생일</th>
+                        <th>연락처</th>
+                        <th>가입일</th>
+                    </tr>
+                    <% for(MemberDTO member:memberList) { %>
+                    <tr>
+                        <%-- 회원번호 --%>
+                        <th><%=member.getMemberNo() %></th>
+                        <%-- 아이디 --%>
+                        <th><%=member.getId() %></th>
+<%--                         비밀번호
+                        <th><%=member.getPassword() %></th> --%>
+                        <%-- 이름 --%>
+                        <th><%=member.getName() %></th>
+                        <%-- 주소 --%>
+                        <th><%=member.getAddress() %></th>
+                        <%-- 성별 --%>
+                        <th><%=member.getSex() %></th>
+                        <%-- 생일 --%>
+                        <th><%=member.getBirthday() %></th>
+                        <%-- 연락처 --%>
+                        <th><%=member.getPhone() %></th>
+                        <%-- 가입일 --%>
+                        <th><%=member.getMemberDate() %></th>
+                    </tr>
+                    <% } %>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+

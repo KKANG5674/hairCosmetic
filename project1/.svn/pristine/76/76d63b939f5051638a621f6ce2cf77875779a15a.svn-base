@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+.board{
+	border: 3px solid red;
+	height: 100%;
+	width: 100%;
+}
+
+/*---------------------------------------*/
+/*오늘현황*/
+.title_1{
+	margin: 10px;
+	border: 3px solid green;
+	height: 100px;	
+}
+
+/*주문이랑 결제건*/
+#today_upload{
+	margin: 10px;
+	border: 3px solid #0080ff;
+	height: 120px;
+}
+
+/*today_upload 안에 있는 div_1*/
+#order_upload{
+	margin: 10px;
+	float: left; 
+	width: 48%;
+	height: 90px;	
+	border: 3px solid #00ff00;
+}
+
+/*today_upload 안에 있는 div_2*/
+#sale_upload{
+	margin: 10px;
+	float: right; 
+	width: 48%;	
+	height: 90px;
+	border: 3px solid #8000ff;
+}
+/*---------------------------------------*/
+/*주문현황*/
+.title2{
+	margin: 10px;
+	border: 3px solid #ff8040;
+	height: 100px;
+}
+
+/*배송현황*/
+.order_ing{
+	margin: 10px;
+	border: 3px solid #feda6b;
+	height: 190px;	
+}
+
+/*배송현황안에 박스들*/
+#before{
+	border: 3px solid gold; 
+	float: left; 
+	width: 24%;
+	height: 150px;
+	margin: 5px;	
+}
+#ready{
+	border: 3px solid black; 
+	float: left; 
+	width: 24%;
+	height: 150px;	
+	margin: 5px;		
+}
+#ing{
+	border: 3px solid #ff80c0; 
+	float: left; 
+	width: 24%;
+	height: 150px;	
+	margin: 5px;			
+}
+#finish{
+	border: 4px solid aqua; 
+	float: right; 
+	width: 24%;
+	height: 150px;				
+	margin: 5px;			
+}
+/*------------------*/

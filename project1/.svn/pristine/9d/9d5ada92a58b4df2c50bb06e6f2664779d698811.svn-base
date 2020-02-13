@@ -1,0 +1,78 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!-- https://www.w3schools.com/css/tryit.asp?filename=trycss_website_layout_blog -->
+<%
+    String workgroup=request.getParameter("workgroup");
+    if(workgroup==null) workgroup="content";
+    
+    String work=request.getParameter("work");
+    if(work==null) work="main_admin";
+    
+    String contentPath=workgroup+"/"+work+".jsp";
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>code for beauty admin</title>
+<link rel="shortcut icon" href="http://textrip.designclick.co.kr/shop/skin/mall_dc/image/favicon/codeforbeauty.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<div class="wrap">
+    <div class="header">
+        <div><a href="index.jsp"><img src="images/logo_represent.png"></a></div>
+    </div>
+    
+    <div class="topnav" >
+       <ul style="float:right;">
+           <li>
+            <a href="../index.html" target="blank">
+            <!-- 그림에 마우스 올려야만 바뀜... -->
+            <img id="homepage" src="images/homepage.png" 
+            onmouseover="this.src='images/homepage_hover.png'"
+            onmouseout="this.src='images/homepage.png';"
+            style="width: 20px; margin-right: 5px;"/> mall</a></li>
+<!--            <li>
+            <a href="index.jsp?workgroup=content&work=setting">
+            <img id="settings" src="images/settings.png"
+            onmouseover="this.src='images/settings_hover.png'"
+            onmouseout="this.src='images/settings.png';"
+            style="width: 20px; margin-right: 5px;">setting</a></li> -->
+       </ul>
+    </div>
+    
+    
+    <div class="sidenav">
+       <ul>
+           <li id="click"><a href="index.jsp?workgroup=content&work=member_admin">
+               <img src="images/user.png">회원관리</a></li>
+           <hr>
+           <li id="click"><a href="index.jsp?workgroup=content&work=order_list">
+                <img src="images/shopping.png">주문관리</a>
+           </li>
+           <hr>
+           <li><a href="">
+                <img src="images/clipboard.png">게시판관리</a>
+               <ul>
+                   <li id="click"><a href="index.jsp?workgroup=content&work=notice_admin_input">공지사항 등록</a></li>
+                   <li id="click"><a href="index.jsp?workgroup=content&work=notice_admin_bulletin">공지사항 관리</a></li>
+                   <!-- <li id="click"><a href="index.jsp?workgroup=content&work=notice_admin">공지사항 설정</a></li> -->
+                   <li id="click"><a href="index.jsp?workgroup=content&work=question_admin_bulletin">문의하기 관리</a></li>
+                   <!-- <li id="click"><a href="index.jsp?workgroup=content&work=question_admin">문의하기 설정</a></li> -->
+               </ul>
+           </li>
+       </ul>
+      
+      
+      
+    </div>
+    
+    <div class="content">
+      <jsp:include page="<%=contentPath %>"/>
+    </div>
+</div>
+
+
+</body>
+</html>

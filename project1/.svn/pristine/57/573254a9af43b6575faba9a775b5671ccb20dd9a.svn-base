@@ -1,0 +1,280 @@
+package question;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import semiProject.JdbcDAO;
+
+
+public class QuestionDAO extends JdbcDAO {
+	private static QuestionDAO _dao;
+
+	public QuestionDAO() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public static QuestionDAO getDAO() {
+		if (_dao == null) {
+			_dao = new QuestionDAO();
+		}
+		return _dao;
+	}
+
+	// 페이징처리
+	public List<QuestionDTO> getpageList(int startRow, int endRow, String search, String keyword) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<QuestionDTO> questionList = new ArrayList<QuestionDTO>();
+		try {
+			con = getConnection();
+
+			if (keyword.equals("")) {
+				String sql = "select * from (select rownum rn, temp.* from (select * from questiontable order by num) temp) where rn between ? and ? and title!='삭제글'";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, startRow);
+				pstmt.setInt(2, endRow);
+			} else {
+				String sql = "select * from (select rownum rn, temp.* from (select * from questiontable where " + search
+						+ " like '%'||?||'%' order by num) temp) where rn between ? and ? and title!='삭제글'";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, keyword);
+				pstmt.setInt(2, startRow);
+				pstmt.setInt(3, endRow);
+			}
+
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				QuestionDTO question = new QuestionDTO();
+				question.setNum(rs.getInt("num"));
+				question.setTitle(rs.getString("title"));
+				question.setContent(rs.getString("content"));
+				question.setId(rs.getString("id"));
+				question.setDateCreated(rs.getString("DateCreated"));
+				questionList.add(question);
+			}
+		} catch (SQLException e) {
+			System.out.println("[에러]getBoardList() 메소드의 SQL 오류 = " + e.getMessage());
+		} finally {
+			close(con, pstmt, rs);
+		}
+		return questionList;
+	}
+
+	// 시퀀스 자동 증가값 검색?
+	public int getBoardNum() {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int num = 0;
+		try {
+			con = getConnection();
+
+			String sql = "select question_seq.nextval from dual where title!='삭제글' ";
+			pstmt = con.prepareStatement(sql);
+
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				num = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			System.out.println("[에러]getBoardNum() 메소드의 SQL 오류 = " + e.getMessage());
+		} finally {
+			close(con, pstmt, rs);
+		}
+		return num;
+	}
+
+	
+//	// 게시글 번호를 전달받아 BOARD 테이블에 저장된 게시글의 조회수가 1 증가 되도록 변경하고 변경행의 갯수를 반환하는 메소드
+//	public int modifyReadCount(int num) {
+//		Connection con = null;
+//		PreparedStatement pstmt = null;
+//		int rows = 0;
+//		try {
+//			con = getConnection();
+//
+//			String sql = "update questiontable set readcount=readcount+1 where num=?";
+//			pstmt = con.prepareStatement(sql);
+//			pstmt.setInt(1, num);
+//
+//			rows = pstmt.executeUpdate();
+//		} catch (SQLException e) {
+//			System.out.println("[에러]modifyReadCount() 메소드의 SQL 오류 = " + e.getMessage());
+//		} finally {
+//			close(con, pstmt);
+//		}
+//		return rows;
+//	}
+//	
+
+	// 질문 입력받아 삽입
+	public void insertQuestion(QuestionDTO question) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+
+		try {
+
+			con = getConnection();
+
+			con.setAutoCommit(false);
+
+			String query = "insert into questiontable values(questiontable_seq.nextval,?,?,?,sysdate)";
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, question.getTitle());
+			pstmt.setString(2, question.getContent());
+			pstmt.setString(3, question.getId());
+
+			pstmt.executeUpdate();
+			con.commit();
+
+		} catch (SQLException e) {
+			System.out.println("[에러]qryInsert() 메소드의 SQL 오류 = " + e.getMessage());
+		} finally {
+			close(con, pstmt);
+		}
+	}
+
+	// 질문삭제
+	public int deleteQuestion(int num) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		int rows = 0;
+		try {
+			con = getConnection();
+
+			String query = "update questiontable set title='삭제글' where num=?";
+			pstmt = con.prepareStatement(query);
+			pstmt.setInt(1, num);
+
+			rows = pstmt.executeUpdate();
+
+		} catch (SQLException e) {
+			System.out.println("[에러]qrydelete() 메소드의 SQL 오류 = " + e.getMessage());
+		} finally {
+			close(con, pstmt);
+		}
+		return rows;
+	}
+
+	// 검색
+	// 1) 아이디검색
+	public List<QuestionDTO> selectId(String Id) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<QuestionDTO> questionList = new ArrayList<QuestionDTO>();
+		try {
+			con = getConnection();
+
+			String query = "select * from questiontable where id=? and title!='삭제글' order by num ";
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, Id);
+
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				QuestionDTO question = new QuestionDTO();
+				question.setNum(rs.getInt("num"));
+				question.setTitle(rs.getString("Title"));
+				question.setContent(rs.getString("Content"));
+				question.setId(rs.getString("Id"));
+				question.setDateCreated(rs.getString("DateCreated"));
+				questionList.add(question);
+
+			}
+		} catch (Exception e) {
+			System.out.println("[에러]selectId() 메소드의 SQL 오류 = " + e.getMessage());
+		} finally {
+			close(con, pstmt, rs);
+		}
+		return questionList;
+	}
+
+	// 2) 키워드검색
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//검색대상과 검색키워드를 전달받아 BOARD 테이블에 저장된 검색키워드 게시글의 갯수를 검색하여 반환하는 메소드
+	// => 검색대상이 없는 경우 BOARD 테이블에 저장된 전체 게시글의 갯수를 검색하여 반환하는 메소드
+	public int getQuestionTotal(String search, String keyword) {
+			Connection con=null;
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			int rows=0;
+			try {
+				con=getConnection();
+				
+				//메소드의 파라메터에 전달된 값에 따라 다른 SQL   
+				//명령을 저장하여 전달되도록 설정 - 동적 SQL
+				if(keyword.equals("")) {//검색 기능 미사용
+					String sql="select count(*) from questiontable where title!='삭제글'";
+					pstmt=con.prepareStatement(sql);
+				} else {//검색 기능 사용
+					//컬럼명을 저장한 Java 변수는 InParameter로 사용 불가능
+					String sql="select count(*) from questiontable where "+search+" like '%'||?||'%' and title!='삭제글'";
+					pstmt=con.prepareStatement(sql);
+					pstmt.setString(1, keyword);
+				}
+				
+				rs=pstmt.executeQuery();
+				
+				if(rs.next()) {
+					rows=rs.getInt(1);
+				}
+			} catch (SQLException e) {
+				System.out.println("[에러]getBoardTotal() 메소드의 SQL 오류 = "+e.getMessage());
+			} finally {
+				close(con, pstmt, rs);
+			}
+			return rows;
+		}
+		
+	//게시글 번호를 전달받아 BOARD 테이블에 저장된 게시글을 검색하여 반환하는 메소드
+	public QuestionDTO getBoard(int num) {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		QuestionDTO question=null;
+		try {
+			con=getConnection();
+			
+			String sql="select * from questiontable where num=? and title!='삭제글'";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				question = new QuestionDTO();
+				question.setNum(rs.getInt("num"));
+				question.setTitle(rs.getString("title"));
+				question.setContent(rs.getString("content"));
+				question.setId(rs.getString("id"));
+				question.setDateCreated(rs.getString("dateCreated"));
+				
+
+			}
+		} catch (SQLException e) {
+			System.out.println("[에러]getBoard() 메소드의 SQL 오류 = "+e.getMessage());
+		} finally {
+			close(con, pstmt, rs);
+		}
+		return question;
+	}
+		
+		
+
+}

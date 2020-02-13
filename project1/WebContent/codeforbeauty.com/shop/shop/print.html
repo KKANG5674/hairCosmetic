@@ -1,0 +1,75 @@
+<html>
+
+<!-- Mirrored from codeforbeauty.com/shop/print.php by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Jun 2019 08:29:41 GMT -->
+<head>
+<title>프린트하기</title>
+<meta http-equiv="imagetoolbar" content="no">
+<link rel="stylesheet" href="http://html.designclick.co.kr/404.html" type="text/css" title="dgg">
+<script language="javascript" src="skin/mall_dc/global.js"></script>
+<script language="JavaScript" type="text/javascript">
+this.name = "PrintScreen";
+document.title = opener.window.document.title;
+function init() {
+	try{
+		var opendiv = opener.document.getElementById("DivAndPrint");
+		var opendivifrm = opendiv.getElementsByTagName("iframe");
+		var html = "";
+		for(i=0; i<opendivifrm.length; i++){
+			if(opendivifrm[i].name == "ifrm"){
+				html = opener.ifrm.document.body.innerHTML;
+				break;
+			}
+		}
+		if(html == "")	html = opener.document.getElementById("DivAndPrint").innerHTML;
+		
+		document.body.innerHTML+=html;
+	}catch(e){
+		alert('프린트를 할 수 없는 페이지입니다.');
+		self.close();
+		return;
+	}
+}
+</script>
+
+<script Language="javascript">
+<!--
+function startTime(){
+       var time= new Date();
+       hours= time.getHours();
+       mins= time.getMinutes();
+       secs= time.getSeconds();
+       closeTime=hours*3600+mins*60+secs;
+       closeTime+=5;  // This number is how long the window stays open
+       Timer();
+}
+
+function Timer(){
+       var time= new Date();
+       hours= time.getHours();
+       mins= time.getMinutes();
+       secs= time.getSeconds();
+       curTime=hours*3600+mins*60+secs
+       if (curTime>=closeTime){
+       //        self.close();
+       }
+       else{
+               window.setTimeout("Timer()",1000)} 
+}
+-->
+</script>
+</head>
+
+<body onLoad="init();window.print(); startTime(); " style="margin:10px">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" >
+<tr>
+<td valign=top  nowrap>
+</td>
+</tr>
+</table>
+
+</body>
+
+<!-- Mirrored from codeforbeauty.com/shop/print.php by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Jun 2019 08:29:41 GMT -->
+</html>
+

@@ -1,0 +1,294 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+        
+<div class="notice">
+<div class="conP wrap1024">
+
+                    <div class="boardList">
+                        <table border="1" summary="" class="carinTable" style="width: 960px;">
+                            <colgroup class="xans-element- xans-board xans-board-listheader-1002 xans-board-listheader xans-board-1002 ">
+                                <col style="width: 85px;">
+                                <col style="width: 100px;" class="displaynone">
+                                <col style="width: auto;">
+                                <col style="width: 120px;">
+                                <col style="width: 120px;" class="">
+                                <col style="width: 55px;" class="">
+                                <col style="width: 55px;" class="displaynone">
+                                <col style="width: 80px;" class="displaynone">
+                            </colgroup>
+                            <thead class="xans-element- xans-board xans-board-listheader-1002 xans-board-listheader xans-board-1002 ">
+                                <tr style="">
+                                    <th scope="col">NUM</th>
+                                    <th scope="col" class="displaynone">CATEGORY</th>
+                                    <th scope="col">TITLE</th>
+                                    <th scope="col">NAME</th>
+                                    <th scope="col" class="">DATE</th>
+                                    <th scope="col" class="">HIT</th>
+                                    <th scope="col" class="displaynone">VOTE</th>
+                                    <th scope="col" class="displaynone">POINT</th>
+                                </tr>
+                            </thead>
+                            <tbody class="xans-element- xans-board xans-board-notice-1002 xans-board-notice xans-board-1002 notice">
+                                <!--
+                $count = 10
+                $login_page_url = /member/login.html
+                $deny_access_url = /index.html
+            -->
+                                <tr style="background-color: #FFFFFF; color: #555555;" class="xans-record-">
+                                    <td><i class="fa fa-star" aria-hidden="true"></i></td>
+                                    <td class="displaynone"></td>
+                                    <td class="subject"><a href="eventIndex1.html" style="color: #555555;">[EVENT] 카린 장마 이벤트 #시크릿 쿠폰</a> <span class="comment"></span></td>
+                                    <td>카린선글라스</td>
+                                    <td class="txtLess ">2019-07-02</td>
+                                    <td class="txtLess ">2172</td>
+                                    <td class="txtLess displaynone">0</td>
+                                    <td class="displaynone"><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/ico_point0.gif" alt="0점"></td>
+                                </tr>
+                                <tr style="background-color: #FFFFFF; color: #555555;" class="xans-record-">
+                                    <td><i class="fa fa-star" aria-hidden="true"></i></td>
+                                    <td class="displaynone"></td>
+                                    <td class="subject"><a href="/board/free/read.html?no=21752&amp;board_no=1" style="color: #555555;">[EVENT] 포토리뷰 이벤트 (스타벅스기프티콘)</a> <span class="comment"></span></td>
+                                    <td>카린선글라스</td>
+                                    <td class="txtLess ">2019-06-07</td>
+                                    <td class="txtLess ">107</td>
+                                    <td class="txtLess displaynone">0</td>
+                                    <td class="displaynone"><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/ico_point0.gif" alt="0점"></td>
+                                </tr>
+                                <tr style="background-color: #FFFFFF; color: #555555;" class="xans-record-">
+                                    <td><i class="fa fa-star" aria-hidden="true"></i></td>
+                                    <td class="displaynone"></td>
+                                    <td class="subject"><a href="/board/free/read.html?no=7100&amp;board_no=1" style="color: #555555;">[NOTICE] 카린영도플레이스 오픈 안내</a> <span class="comment">[1]</span></td>
+                                    <td>카린선글라스</td>
+                                    <td class="txtLess ">2017-05-22</td>
+                                    <td class="txtLess ">2326</td>
+                                    <td class="txtLess displaynone">4</td>
+                                    <td class="displaynone"><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/ico_point0.gif" alt="0점"></td>
+                                </tr>
+                                <tr style="background-color: #FFFFFF; color: #555555;" class="xans-record-">
+                                    <td><i class="fa fa-star" aria-hidden="true"></i></td>
+                                    <td class="displaynone"></td>
+                                    <td class="subject"><a href="/board/free/read.html?no=2821&amp;board_no=1" style="color: #555555;">[EVENT] 회원 가입 시 즉시 사용 가능 쿠폰
+                                            10,000원 증정</a> <span class="comment">[2]</span></td>
+                                    <td>카린선글라스</td>
+                                    <td class="txtLess ">2015-02-27</td>
+                                    <td class="txtLess ">21197</td>
+                                    <td class="txtLess displaynone">21</td>
+                                    <td class="displaynone"><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/ico_point0.gif" alt="0점"></td>
+                                </tr>
+                            </tbody>
+                            <tbody class="xans-element- xans-board xans-board-list-1002 xans-board-list xans-board-1002">
+                                <!--
+                $login_page_url = /member/login.html
+                $deny_access_url = /index.html
+            -->
+                                <tr style="background-color: #FFFFFF; color: #555555;" class="xans-record-">
+                                    <td>63</td>
+                                    <td class="displaynone"></td>
+                                    <td class="subject"><a href="/board/free/read.html?no=20939&amp;board_no=1" style="color: #555555;">[NOTICE] 4월 24일 (수) ~ 4월 26일 (금)
+                                            배송지연 안내</a> <span class="comment"></span></td>
+                                    <td>카린선글라스</td>
+                                    <td class="txtLess ">2019-04-18</td>
+                                    <td class="txtLess ">2012</td>
+                                    <td class="txtLess displaynone">0</td>
+                                    <td class="displaynone"><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/ico_point0.gif" alt="0점"></td>
+                                </tr>
+                                <tr style="background-color: #FFFFFF; color: #555555;" class="xans-record-">
+                                    <td>62</td>
+                                    <td class="displaynone"></td>
+                                    <td class="subject"><a href="/board/free/read.html?no=19055&amp;board_no=1" style="color: #555555;">[NOTICE] 2019 설 연휴 배송안내</a> <span class="comment"></span></td>
+                                    <td>카린선글라스</td>
+                                    <td class="txtLess ">2019-01-23</td>
+                                    <td class="txtLess ">172</td>
+                                    <td class="txtLess displaynone">0</td>
+                                    <td class="displaynone"><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/ico_point0.gif" alt="0점"></td>
+                                </tr>
+                                <tr style="background-color: #FFFFFF; color: #555555;" class="xans-record-">
+                                    <td>61</td>
+                                    <td class="displaynone"></td>
+                                    <td class="subject"><a href="/board/free/read.html?no=11350&amp;board_no=1" style="color: #555555;">[NOTICE] 베그너 C1 재입고 안내</a> <span class="comment"></span></td>
+                                    <td>카린선글라스</td>
+                                    <td class="txtLess ">2018-08-01</td>
+                                    <td class="txtLess ">1995</td>
+                                    <td class="txtLess displaynone">0</td>
+                                    <td class="displaynone"><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/ico_point0.gif" alt="0점"></td>
+                                </tr>
+                                <tr style="background-color: #FFFFFF; color: #555555;" class="xans-record-">
+                                    <td>60</td>
+                                    <td class="displaynone"></td>
+                                    <td class="subject"><a href="/board/free/read.html?no=11326&amp;board_no=1" style="color: #555555;">[EVENT] 카린과 함께 진짜 여행 떠나자! 당첨자 발표</a> <span class="comment">[2]</span></td>
+                                    <td>카린선글라스</td>
+                                    <td class="txtLess ">2018-07-31</td>
+                                    <td class="txtLess ">526</td>
+                                    <td class="txtLess displaynone">0</td>
+                                    <td class="displaynone"><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/ico_point0.gif" alt="0점"></td>
+                                </tr>
+                                <tr style="background-color: #FFFFFF; color: #555555;" class="xans-record-">
+                                    <td>59</td>
+                                    <td class="displaynone"></td>
+                                    <td class="subject"><a href="/board/free/read.html?no=10983&amp;board_no=1" style="color: #555555;">노선 별 티켓 사용 관련 일정안내</a> <span class="comment"></span></td>
+                                    <td>카린선글라스</td>
+                                    <td class="txtLess ">2018-07-09</td>
+                                    <td class="txtLess ">306</td>
+                                    <td class="txtLess displaynone">0</td>
+                                    <td class="displaynone"><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/ico_point0.gif" alt="0점"></td>
+                                </tr>
+                                <tr style="background-color: #FFFFFF; color: #555555;" class="xans-record-">
+                                    <td>58</td>
+                                    <td class="displaynone"></td>
+                                    <td class="subject"><a href="/board/free/read.html?no=10934&amp;board_no=1" style="color: #555555;">[EVENT] 카린과 함께 진짜 여행 떠나자!</a> <span class="comment">[87]</span></td>
+                                    <td>카린선글라스</td>
+                                    <td class="txtLess ">2018-07-04</td>
+                                    <td class="txtLess ">4332</td>
+                                    <td class="txtLess displaynone">0</td>
+                                    <td class="displaynone"><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/ico_point0.gif" alt="0점"></td>
+                                </tr>
+                                <tr style="background-color: #FFFFFF; color: #555555;" class="xans-record-">
+                                    <td>57</td>
+                                    <td class="displaynone"></td>
+                                    <td class="subject"><a href="/board/free/read.html?no=9782&amp;board_no=1" style="color: #555555;">[종료] [EVENT] 카린 여권케이스 증정이벤트</a> <span class="comment">[1]</span></td>
+                                    <td>카린선글라스</td>
+                                    <td class="txtLess ">2018-05-11</td>
+                                    <td class="txtLess ">2584</td>
+                                    <td class="txtLess displaynone">0</td>
+                                    <td class="displaynone"><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/ico_point0.gif" alt="0점"></td>
+                                </tr>
+                                <tr style="background-color: #FFFFFF; color: #555555;" class="xans-record-">
+                                    <td>56</td>
+                                    <td class="displaynone"></td>
+                                    <td class="subject"><a href="/board/free/read.html?no=9336&amp;board_no=1" style="color: #555555;">[NOTICE] 4월 25일 (수) ~ 4월 27일 (금)
+                                            배송 및 A/S 지연 안내</a> <span class="comment"></span></td>
+                                    <td>카린선글라스</td>
+                                    <td class="txtLess ">2018-04-19</td>
+                                    <td class="txtLess ">519</td>
+                                    <td class="txtLess displaynone">0</td>
+                                    <td class="displaynone"><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/ico_point0.gif" alt="0점"></td>
+                                </tr>
+                                <tr style="background-color: #FFFFFF; color: #555555;" class="xans-record-">
+                                    <td>55</td>
+                                    <td class="displaynone"></td>
+                                    <td class="subject"><a href="/board/free/read.html?no=9335&amp;board_no=1" style="color: #555555;">[종료] [EVENT] 달라홀스 키링 증정 이벤트</a> <span class="comment"></span></td>
+                                    <td>카린선글라스</td>
+                                    <td class="txtLess ">2018-04-19</td>
+                                    <td class="txtLess ">490</td>
+                                    <td class="txtLess displaynone">0</td>
+                                    <td class="displaynone"><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/ico_point0.gif" alt="0점"></td>
+                                </tr>
+                                <tr style="background-color: #FFFFFF; color: #555555;" class="xans-record-">
+                                    <td>54</td>
+                                    <td class="displaynone"></td>
+                                    <td class="subject"><a href="/board/free/read.html?no=8521&amp;board_no=1" style="color: #555555;">[NOTICE] 설 연휴 배송공지 안내</a> <span class="comment"></span></td>
+                                    <td>카린선글라스</td>
+                                    <td class="txtLess ">2018-02-12</td>
+                                    <td class="txtLess ">308</td>
+                                    <td class="txtLess displaynone">0</td>
+                                    <td class="displaynone"><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/ico_point0.gif" alt="0점"></td>
+                                </tr>
+                                <tr style="background-color: #FFFFFF; color: #555555;" class="xans-record-">
+                                    <td>53</td>
+                                    <td class="displaynone"></td>
+                                    <td class="subject"><a href="/board/free/read.html?no=8261&amp;board_no=1" style="color: #555555;">[NOTICE] 1월 11일(목)~1월 12일(금) 배송 지연
+                                            안내</a> <span class="comment"></span></td>
+                                    <td>카린선글라스</td>
+                                    <td class="txtLess ">2018-01-09</td>
+                                    <td class="txtLess ">327</td>
+                                    <td class="txtLess displaynone">0</td>
+                                    <td class="displaynone"><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/ico_point0.gif" alt="0점"></td>
+                                </tr>
+                                <tr style="background-color: #FFFFFF; color: #555555;" class="xans-record-">
+                                    <td>52</td>
+                                    <td class="displaynone"></td>
+                                    <td class="subject"><a href="/board/free/read.html?no=7961&amp;board_no=1" style="color: #555555;"> [EVENT] F/W 아이웨어 메이크업 스타일링 이벤트
+                                            당첨자 발표</a> <span class="comment"></span></td>
+                                    <td>카린선글라스</td>
+                                    <td class="txtLess ">2017-10-31</td>
+                                    <td class="txtLess ">405</td>
+                                    <td class="txtLess displaynone">0</td>
+                                    <td class="displaynone"><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/ico_point0.gif" alt="0점"></td>
+                                </tr>
+                                <tr style="background-color: #FFFFFF; color: #555555;" class="xans-record-">
+                                    <td>51</td>
+                                    <td class="displaynone"></td>
+                                    <td class="subject"><a href="/board/free/read.html?no=7858&amp;board_no=1" style="color: #555555;">[NOTICE] 10월 20일 워크샵으로 인한 배송 지연 안내</a>
+                                        <span class="comment"></span></td>
+                                    <td>카린선글라스</td>
+                                    <td class="txtLess ">2017-10-16</td>
+                                    <td class="txtLess ">407</td>
+                                    <td class="txtLess displaynone">0</td>
+                                    <td class="displaynone"><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/ico_point0.gif" alt="0점"></td>
+                                </tr>
+                                <tr style="background-color: #FFFFFF; color: #555555;" class="xans-record-">
+                                    <td>50</td>
+                                    <td class="displaynone"></td>
+                                    <td class="subject"><a href="/board/free/read.html?no=7823&amp;board_no=1" style="color: #555555;">[EVENT] 카린과 함께하는 F/W 아이웨어 메이크업
+                                            스타일링 이벤트</a> <span class="comment">[107]</span></td>
+                                    <td>카린선글라스</td>
+                                    <td class="txtLess ">2017-10-13</td>
+                                    <td class="txtLess ">2044</td>
+                                    <td class="txtLess displaynone">0</td>
+                                    <td class="displaynone"><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/ico_point0.gif" alt="0점"></td>
+                                </tr>
+                                <tr style="background-color: #FFFFFF; color: #555555;" class="xans-record-">
+                                    <td>49</td>
+                                    <td class="displaynone"></td>
+                                    <td class="subject"><a href="/board/free/read.html?no=7816&amp;board_no=1" style="color: #555555;">[종료] [EVENT] 카린 X 레쥬렉션 스퀘어백 증정 이벤트</a>
+                                        <span class="comment"></span></td>
+                                    <td>카린선글라스</td>
+                                    <td class="txtLess ">2017-10-12</td>
+                                    <td class="txtLess ">1300</td>
+                                    <td class="txtLess displaynone">0</td>
+                                    <td class="displaynone"><img src="http://img.echosting.cafe24.com/skin/base_ko_KR/board/ico_point0.gif" alt="0점"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="xans-element- xans-board xans-board-empty-1002 xans-board-empty xans-board-1002 boardListEmpty displaynone ">
+                        <p></p>
+                    </div>
+                    <div class="xans-element- xans-board xans-board-buttonlist-1002 xans-board-buttonlist xans-board-1002 displaynone btnArea txtR bdB ">
+                        <a href="/board/free/write.html?board_no=1" class="btn1 displaynone">글쓰기</a>
+                    </div>
+                </div>
+
+                <div class="xans-element- xans-board xans-board-paging-1002 xans-board-paging xans-board-1002 ec-base-paginate lineT100">
+                    <p>
+                        <a href="?board_no=1&amp;page=1"><i class="icon-arrowLeft" aria-hidden="true"></i></a>
+                    </p>
+                    <ol>
+                        <li class="xans-record-"><a href="?board_no=1&amp;page=1" class="this">1</a></li>
+                        <li class="xans-record-"><a href="?board_no=1&amp;page=2" class="other">2</a></li>
+                        <li class="xans-record-"><a href="?board_no=1&amp;page=3" class="other">3</a></li>
+                        <li class="xans-record-"><a href="?board_no=1&amp;page=4" class="other">4</a></li>
+                        <li class="xans-record-"><a href="?board_no=1&amp;page=5" class="other">5</a></li>
+                    </ol>
+                    <p>
+                        <a href="?board_no=1&amp;page=2"><i class="icon-arrowRight" aria-hidden="true"></i></a>
+                    </p>
+                </div>
+
+                <form id="boardSearchForm" name="" action="/board/free/list.html" method="get" target="_top" enctype="multipart/form-data">
+                    <input id="board_no" name="board_no" value="1" type="hidden">
+                    <input id="page" name="page" value="1" type="hidden"> <input id="board_sort" name="board_sort" value="" type="hidden">
+                    <div class="xans-element- xans-board xans-board-search-1002 xans-board-search xans-board-1002 ">
+                        <fieldset class="boardSearch">
+                            <legend>게시물 검색</legend>
+                            <p>
+                                <select id="search_date" name="search_date" fw-filter="" fw-label="" fw-msg="">
+                                    <option value="week">일주일</option>
+                                    <option value="month">한달</option>
+                                    <option value="month3">세달</option>
+                                    <option value="all">전체</option>
+                                </select> <select id="search_key" name="search_key" fw-filter="" fw-label="" fw-msg="">
+                                    <option value="subject">제목</option>
+                                    <option value="content">내용</option>
+                                    <option value="writer_name">글쓴이</option>
+                                    <option value="member_id">아이디</option>
+                                    <option value="nick_name">별명</option>
+                                </select> <input id="search" name="search" fw-filter="" fw-label="" fw-msg="" class="inputTypeText" placeholder="" value="" type="text"> <a href="#none" onclick="BOARD.form_submit('boardSearchForm');" class="minibtn2">찾기</a>
+                            </p>
+                        </fieldset>
+                    </div>
+                </form>
+                <!-- 관리자 전용 메뉴 -->
+                <!-- //관리자 전용 메뉴 -->
+
+</div>

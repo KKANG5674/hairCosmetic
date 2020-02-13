@@ -1,0 +1,19 @@
+package comment;
+
+import semiProject.JdbcDAO;
+
+public class CommentDAO extends JdbcDAO {
+    private static CommentDAO _dao;
+    
+    private CommentDAO() {
+    }
+    
+    public static CommentDAO getDAO() {
+        if(_dao==null) {
+            _dao=new CommentDAO();
+        }
+        return _dao;
+    }
+    
+
+}

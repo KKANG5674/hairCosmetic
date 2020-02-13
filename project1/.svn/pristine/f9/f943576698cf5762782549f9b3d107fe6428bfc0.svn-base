@@ -1,0 +1,132 @@
+package question;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import semiProject.JdbcDAO;
+
+public class QuestionDAO extends JdbcDAO{
+	private static QuestionDAO _dao;
+	
+	public QuestionDAO() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public static QuestionDAO getDAO() {
+		if(_dao==null) {
+			_dao=new QuestionDAO();
+		}
+		return _dao;
+	}
+	
+	//질문 입력받아 삽입
+	public void insertQuestion(QuestionDTO question) throws SQLException {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			
+			con= getConnection();
+			
+			con.setAutoCommit(false);
+			
+			String query = "insert into questiontable values(questiontable_seq.nextval,?,?,?,sysdate)";
+			pstmt= con.prepareStatement(query);
+			pstmt.setString(1, question.getTitle());
+			pstmt.setString(2, question.getContent());
+			pstmt.setString(3, question.getId());
+			
+			pstmt.executeUpdate();
+			con.commit();
+		
+		}catch (SQLException e) {
+			System.out.println("[에러]qryInsert() 메소드의 SQL 오류 = " + e.getMessage());
+		}finally {
+			close(con, pstmt);
+		}
+	}
+	//수정
+	public int updateQuestion(QuestionDTO question) {
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		int rows=0;
+		try {
+			con=getConnection();
+			
+			String query = "update questiontable set title=?,content=?,id=?, dateCreated=sysdate where num=?";
+			pstmt=con.prepareStatement(query);
+			pstmt.setString(1, question.getTitle());
+			pstmt.setString(2, question.getContent());
+			pstmt.setString(3, question.getId());
+			pstmt.setInt(4, question.getNum());
+			
+			rows=pstmt.executeUpdate();
+		}catch (SQLException e) {
+			System.out.println("[에러]updateQuestion() 메소드의 SQL 오류 ="+e.getMessage());
+		}finally {
+			close(con, pstmt);
+		}
+		return rows;
+	}
+	
+	//질문삭제
+	public int deleteQuestion(int num) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		int rows=0;
+		try {
+			con=getConnection();
+			
+			String query="delete from questiontable where num=?";
+			pstmt=con.prepareStatement(query);
+			pstmt.setInt(1, num);
+	
+			rows=pstmt.executeUpdate();
+			
+		}catch (SQLException e) {
+			System.out.println("[에러]qrydelete() 메소드의 SQL 오류 = "+e.getMessage());
+		}finally {
+			close(con, pstmt);
+		}
+		return rows; 
+	}
+	
+	//검색
+	//아이디검색
+	public List<QuestionDTO> selectId (String Id){
+		Connection con=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		List<QuestionDTO> questionList=new ArrayList<QuestionDTO>();
+		try {
+			con=getConnection();
+			
+			String query="select * from questiontable where id=? order by num";
+			pstmt=con.prepareStatement(query);
+			pstmt.setString(1, Id);
+			
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()) {
+				QuestionDTO question =new QuestionDTO();
+				question.setNum(rs.getInt("num"));
+				question.setTitle(rs.getString("Title"));
+				question.setContent(rs.getString("Content"));
+				question.setId(rs.getString("Id"));
+				question.setDateCreated(rs.getDate("DateCreated"));
+				questionList.add(question);
+				
+			}
+		}catch (Exception e) {
+			System.out.println("[에러]selectId() 메소드의 SQL 오류 = "+e.getMessage());
+		}finally {
+			close(con, pstmt, rs);
+		}
+		return questionList;
+	}
+	
+}

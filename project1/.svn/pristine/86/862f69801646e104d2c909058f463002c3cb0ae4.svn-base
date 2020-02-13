@@ -1,0 +1,102 @@
+<%@page import="oracle.net.aso.q"%>
+<%@page import="member.MemberDTO"%>
+<%@page import="question.QuestionDAO"%>
+<%@page import="question.QuestionDTO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+    //비정상적인 요청에 대한 응답처리 => 전달값이 존재하지 않을 경우
+    if(request.getParameter("num")==null){
+        out.println("<script>");
+        out.println("location.href='"+request.getContextPath()+"/codeforbeauty.com/shop/admin/index_admin.jsp?workgroup=content&work=question_admin';");
+        out.println("</script>");
+        return;
+    }
+
+    //전달값을 반환받아 저장
+    int num=Integer.parseInt(request.getParameter("num"));
+    String pageNum=request.getParameter("pageNum");
+    String search=request.getParameter("search");
+    String keyword=request.getParameter("keyword");
+    
+    //게시글 번호를 전달하여 questiontable 테이블에 저장된 게시글을 검색하여 반환하는 DAO 클래스의 메소드 호출
+    //게시글 검색 반환
+    QuestionDTO question=QuestionDAO.getDAO().getBoard(num);
+    
+    //비정상적인 요청에 대한 응답 처리
+    // => 검색된 게시글이 없는 경우
+        if(question==null) {
+            out.println("<script>");
+            out.println("location.href='"+request.getContextPath()+"/codeforbeauty.com/shop/admin/index_admin.jsp?workgroup=content&work=question_admin';");
+            out.println("</script>");
+            return;
+        }
+
+
+%>
+<div id="content">
+        <form action="<%=request.getContextPath() %>/codeforbeauty.com/shop/admin/content/question_admin_reply_action.jsp" method="post" id="ReplyForm">
+            <h2>문의하기</h2>
+            <div style="width: 960px;">
+            <table id="question_detail">
+                
+                <tr>
+                    <th>작성자</th>
+                    <td>
+                        <%=question.getId() %>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <th>작성일</th>
+                    <td><%=question.getDateCreated().substring(0, 19) %></td>
+                </tr>
+                
+                <tr>
+                    <th>제목</th>
+                    <td class="title">
+                        <%=question.getTitle() %>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <th>내용</th>
+                    <td class="content" style=" height: 500px; vertical-align: text-top;">
+                        <%=question.getContent().replace("\n", "<br>") %>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">답글</th>
+                    <td>
+                    <textarea name="reply" id="reply" cols="60" rows="5" placeholder="답글입력"
+                              style="margin: 0px; width: 95%; resize: vertical; "></textarea>
+                    </td>
+                </tr>
+            </table>
+            
+            
+            <div style="margin-left: 20px; text-align: center;">
+                <button type="submit" id="saveBtn">답글 등록</button>
+                <button type="reset" id="resetBtn">다시입력</button>
+                <button type="button" id="listBtn">게시글목록</button>
+            </div>  
+            </div>  
+       </form>
+        
+</div>  
+  
+<form id="ReplyForm" method="post">
+    <input type="hidden" name="num" value="<%=num%>">
+    <input type="hidden" name="pageNum" value="<%=pageNum%>">
+    <input type="hidden" name="search" value="<%=search%>">
+    <input type="hidden" name="keyword" value="<%=keyword%>">
+</form> 
+
+<script type="text/javascript">
+$("#listBtn").click(function() {
+    $("#questionForm").attr("action", "<%=request.getContextPath()%>/codeforbeauty.com/shop/admin/index_admin.jsp?workgroup=content&work=question_admin");
+    $("#questionForm").submit();
+});
+</script> 
+
+        
